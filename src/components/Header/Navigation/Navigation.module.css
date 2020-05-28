@@ -1,0 +1,9 @@
+.Navigation {
+  flex: 1 1 80%;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

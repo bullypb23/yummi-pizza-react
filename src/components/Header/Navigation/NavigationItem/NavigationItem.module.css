@@ -1,0 +1,23 @@
+.NavigationItem {
+  height: 100%;
+  flex-basis: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Link {
+  height: 100%;
+  flex-basis: 100%;
+  font-size: 1.25rem;
+  padding: 10px 15px;
+  margin: 0 5px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.Link:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
