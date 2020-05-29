@@ -1,7 +1,12 @@
 .App {
-  font-family: 'Roboto', sans-serif;
   min-width: 100vw;
+  max-width: 100vw;
   min-height: 100vh;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 :root {

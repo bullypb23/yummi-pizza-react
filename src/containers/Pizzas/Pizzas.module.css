@@ -1,0 +1,9 @@
+.PizzasContainer {
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: #222;
+}

@@ -7,8 +7,6 @@ const Navigation = () => {
     <nav className={classes.Navigation}>
       <ul>
         <NavigationItem link="/">Home</NavigationItem>
-        <NavigationItem link="/about">About</NavigationItem>
-        <NavigationItem link="/contact">Contact</NavigationItem>
         <NavigationItem link="/basket">Basket</NavigationItem>
       </ul>
     </nav>

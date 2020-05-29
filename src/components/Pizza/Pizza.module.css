@@ -1,0 +1,75 @@
+.PizzaItem {
+  flex: 25%;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.ImageContainer {
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.PizzaImage {
+  height: 100%;
+  overflow: hidden;
+}
+
+.Description {
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+}
+
+.Description p:first-child {
+  font-size: 1.25rem;
+  padding: 5px;
+}
+
+.Description p:last-child {
+  font-size: 0.8rem;
+  padding: 0 5px 5px;
+}
+
+.PizzaItem h3 {
+  padding: 5px 0 10px;
+  font-size: 1.5rem;
+}
+
+.SelectForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.SelectForm select {
+  width: 80%;
+  display: block;
+  font-size: 1rem;
+  padding: 5px;
+  color: #222;
+}
+
+.SelectForm select:focus {
+  border: 1px solid var(--primary-color);
+  outline: none;
+}
+
+.PizzaItem button {
+  width: 70%;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  cursor: pointer;
+}
