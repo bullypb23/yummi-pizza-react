@@ -1,6 +1,7 @@
 import React, { Component, Suspense } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import Basket from './containers/Basket/Basket';
@@ -11,7 +12,7 @@ class App extends Component {
   }
 
   addedPizzaHandler = (name, price) => {
-    console.log(name)
+    console.log(name, price)
     const updatedState = [...this.state.selectedPizzas];
     updatedState.push({name: name, price: price});
     this.setState({ selectedPizzas: updatedState })
@@ -28,6 +29,7 @@ class App extends Component {
             <Redirect to="/" />
           </Suspense>
         </Switch>
+        <Footer />
       </div>
     );
   }

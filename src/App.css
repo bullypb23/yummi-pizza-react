@@ -1,17 +1,19 @@
 .App {
-  min-width: 100vw;
   max-width: 100vw;
   min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 :root {
   --primary-color: rgb(211, 14, 14);
-  --secondary-color: rgb(236, 73, 73);
+  --secondary-color: rgb(212, 39, 39);
 }
 
 a {
