@@ -44,11 +44,17 @@
   };
 }
 
-img {
+.Delivery img {
   height: 100px;
 }
 
-h3 {
+.Delivery h3 {
   font-size: 2rem;
+  color: var(--primary-color);
+} 
+
+.Delivery p {
+  padding-left: 10px;
+  font-size: 1rem;
   color: var(--primary-color);
 }

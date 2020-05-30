@@ -39,6 +39,7 @@
 .PizzaItem h3 {
   padding: 5px 0 10px;
   font-size: 1.5rem;
+  color: var(--primary-color);
 }
 
 .SelectForm {
@@ -50,6 +51,7 @@
 
 .SelectForm select {
   width: 80%;
+  border-radius: 5px;
   display: block;
   font-size: 1rem;
   padding: 5px;
@@ -57,11 +59,16 @@
 }
 
 .SelectForm select:focus {
-  border: 1px solid var(--primary-color);
+  border: none;
   outline: none;
 }
 
-.PizzaItem button {
+.Button {
+  width: 100%;
+  position: relative;
+}
+
+.Button button {
   width: 70%;
   background: var(--primary-color);
   color: #fff;
@@ -74,11 +81,22 @@
   cursor: pointer;
 }
 
-.PizzaItem button:hover {
+.Button button:hover {
   background: var(--secondary-color);
 }
 
-.PizzaItem .Info {
+.Button .Info {
   font-size: 0.8rem;
   color: green;
+}
+
+.Button div {
+  position: absolute;
+  right: 10%;
+  bottom: 20%;
+  z-index: 10;
+  color: green;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
 }

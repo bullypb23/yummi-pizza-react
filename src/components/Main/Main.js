@@ -14,7 +14,8 @@ const Main = props => {
           <img src={logo} alt="Yummi Pizza logo" />
         </div>
         <div>
-          <h3>Delivery to your adddress in under 30mins!</h3>
+          <h3>Delivery to your adddress in under 30 minutes!</h3>
+          <p>Delivery price is 2€! For orders higher than 20€ delivery is free!</p>
         </div>
       </div>
     </React.Fragment>

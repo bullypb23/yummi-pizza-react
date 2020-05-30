@@ -1,0 +1,104 @@
+.Basket {
+  width: 100%;
+  position: relative;
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  /* justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap; */
+}
+
+.Container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.Heading {
+  border-bottom: 1px solid #ccc;
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Heading h2 {
+  font-size: 3rem;
+  color: var(--primary-color);
+  padding: 5px;
+}
+
+.EmptyBasket {
+  padding: 20px 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.EmptyBasket a {
+  color: var(--primary-color);
+}
+
+.Price {
+  flex: 1 1 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Price p {
+  width: 100%;
+  font-size: 1.2rem;
+  text-align: right;
+  padding: 10px 0;
+}
+
+.Price h4 {
+  text-align: right;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 10px 0;
+  color: var(--secondary-color);
+}
+
+.Price span {
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-block;
+  text-align: right;
+  min-width: 100px;
+  padding: 5px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+}
+
+.Order {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.Order a {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  width: 15%;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.Order a:hover {
+  background: var(--secondary-color);
+}

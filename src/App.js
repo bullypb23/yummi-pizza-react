@@ -5,17 +5,77 @@ import Footer from './components/Footer/Footer';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import Basket from './containers/Basket/Basket';
+import Order from './containers/Order/Order';
 
 class App extends Component {
   state = {
-    selectedPizzas: []
+    selectedPizzas: [],
+    totalBasketPrice: 0,
+    deliveryPrice: 0
   }
 
   addedPizzaHandler = (name, price) => {
-    console.log(name, price)
-    const updatedState = [...this.state.selectedPizzas];
-    updatedState.push({name: name, price: price});
-    this.setState({ selectedPizzas: updatedState })
+    const updatedBasket = [...this.state.selectedPizzas];
+    let quantity = 1;
+    updatedBasket.push({name: name, price: price, quantity: quantity, totalPrice: price});
+    this.setState({ selectedPizzas: updatedBasket });
+    this.setState(prevState => {
+      return {
+        totalBasketPrice: prevState.totalBasketPrice + Number(price)
+      }
+    });
+    let newDeliveryPrice = 0;
+    this.setState(prevState => {
+      prevState.totalBasketPrice < 20 ? newDeliveryPrice = 2 : newDeliveryPrice = 0;
+      return {
+        deliveryPrice: newDeliveryPrice
+      }
+    });
+  }
+
+  quantityHandler = (id, quantity) => {
+    let updatedBasket = [...this.state.selectedPizzas];
+    let updatedBasketId = updatedBasket[id];
+    updatedBasketId['quantity'] = +quantity;
+    updatedBasketId['totalPrice'] = +updatedBasketId['price'] * +updatedBasketId['quantity'];
+    updatedBasket[id] = updatedBasketId;
+    this.setState({ 
+      selectedPizzas: updatedBasket,
+    });
+    let newPrice = 0;
+    for(let i = 0; i < updatedBasket.length; i++) {
+      newPrice += Number(updatedBasket[i].totalPrice)
+    }
+    this.setState({ totalBasketPrice: newPrice });
+    let newDeliveryPrice = 0;
+    this.setState(prevState => {
+      prevState.totalBasketPrice < 20 ? newDeliveryPrice = 2 : newDeliveryPrice = 0;
+      return {
+        deliveryPrice: newDeliveryPrice
+      }
+    });
+  }
+
+  removePizzaHandler = (id) => {
+    let updatedBasket = [...this.state.selectedPizzas];
+		let updatedBasketIDs = updatedBasket.filter((item, index) => {
+			return index !== Number(id)
+		});
+		this.setState({
+			selectedPizzas: updatedBasketIDs
+		});
+		this.setState(prevState => {
+			return {
+				totalBasketPrice: prevState.totalBasketPrice - Number(updatedBasket[id].price)
+			}
+    });
+    let newDeliveryPrice = 0;
+    this.setState(prevState => {
+      prevState.totalBasketPrice < 20 ? newDeliveryPrice = 2 : newDeliveryPrice = 0;
+      return {
+        deliveryPrice: newDeliveryPrice
+      }
+    });
   }
 
   render() {
@@ -25,7 +85,13 @@ class App extends Component {
         <Switch>
           <Suspense fallback={<h1>Loading...</h1>}>
             <Route exact path="/" render={() => <HomePage addedPizzaHandler={this.addedPizzaHandler} />} />
-            <Route path="/basket" component={Basket} />
+            <Route path="/basket" render={() => <Basket 
+                                                  pizzas={this.state.selectedPizzas} 
+                                                  totalPrice={this.state.totalBasketPrice} 
+                                                  quantityHandler={this.quantityHandler} 
+                                                  removePizza={this.removePizzaHandler}
+                                                  deliveryPrice={this.state.deliveryPrice} />} />
+            <Route path="/order" render={() => <Order />} />
             <Redirect to="/" />
           </Suspense>
         </Switch>

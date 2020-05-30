@@ -20,12 +20,8 @@ const Pizza = props => {
     }
   }, [info])
 
-  const sizeHandler = (e) => {
+  const priceHandler = (e) => {
     setPrice(e.target.value)
-  }
-
-  const addedSuccessfully = () => {
-    return <span className={classes.Info}>Added to basket successfully!</span>
   }
 
   let src;
@@ -40,7 +36,7 @@ const Pizza = props => {
     case 'Vegetariana':
       src = vegetariana;
       break;
-    case 'Hawaii':
+    case 'Hawaiian':
       src = hawaiian;
       break;
     case 'Mexicana':
@@ -56,7 +52,7 @@ const Pizza = props => {
   return (
     <div className={classes.PizzaItem}>
       <div className={classes.ImageContainer}>
-        <img className={classes.PizzaImage} src={src} alt='Margarita'/>
+        <img className={classes.PizzaImage} src={src} alt='Pizza'/>
         <div className={classes.Description}>
           <p>Ingredients</p>
           <p>{props.ingredients}</p>
@@ -64,17 +60,22 @@ const Pizza = props => {
       </div>
       <h3>{props.name}</h3>
       <div className={classes.SelectForm}>
-        <select name="size" id="size" onChange={sizeHandler}>
+        <select name="size" id="size" onChange={priceHandler}>
           <option value={props.priceS}>S Ø27cm - {props.priceS} €</option>
           <option value={props.priceL}>L Ø32cm - {props.priceL} €</option>
           <option value={props.priceXL}>XL Ø42cm - {props.priceXL} €</option>
         </select>
       </div>
-      <button onClick={() => {
-        props.orderHandler(props.name, price);
-        setInfo(true);
-      }}>Add to Basket</button>
-      <p>{info === true ? addedSuccessfully() : null}</p>
+      <div className={classes.Button}>
+        <button onClick={() => {
+          props.orderHandler(props.name, price);
+          setInfo(true);
+        }}>Add to Basket</button>
+        {info === true ? (<div>
+          <i className="far fa-check-circle"></i>
+        </div>) : null}
+        {/* <p>{info === true ? addedSuccessfully() : null}</p> */}
+      </div>
     </div>
   )
 }
