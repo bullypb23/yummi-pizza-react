@@ -86,7 +86,7 @@
   align-items: center;
 }
 
-.Order a {
+.Order button {
   font-size: 1.5rem;
   margin-top: 10px;
   width: 15%;
@@ -99,6 +99,11 @@
   color: #fff;
 }
 
-.Order a:hover {
+.Order button:hover {
   background: var(--secondary-color);
+}
+
+.Order button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
 }

@@ -4,6 +4,9 @@ import BasketItem from '../../components/BasketItem/BasketItem';
 import { Link } from 'react-router-dom';
 
 class Basket extends Component {
+  proceedToOrders = () => {
+    this.props.history.push('/order');
+  }
   render() {
     const pizzasArray = Object.keys(this.props.pizzas);
     let pizzas = null;
@@ -26,7 +29,7 @@ class Basket extends Component {
     } else {
       pizzas = (
         <div className={classes.EmptyBasket}>
-          <h2>Your shopping cart is empty. Go to <Link to="/">Home</Link> page and choose something from menu.</h2>
+          <h2>Your shopping cart is empty. Go to <Link to="/">Home</Link> page and choose something yummi.</h2>
         </div>)
     }
 
@@ -44,7 +47,7 @@ class Basket extends Component {
             <h4>Total price is <span>{+totalPrice.toFixed(2) + +this.props.deliveryPrice.toFixed(2)}</span>€</h4>
           </div>
           <div className={classes.Order}>
-            <Link to="/order">Order</Link>
+            <button onClick={this.proceedToOrders} disabled={pizzasArray.length === 0 ? true : false}>Order</button>
           </div>
         </div>
       </div>

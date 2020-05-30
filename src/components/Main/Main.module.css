@@ -36,10 +36,10 @@
 }
 
 @keyframes delivery {
-  from {
+  0% {
     transform: translateX(95vw);
   };
-  to {
+  100% {
     transform: translateX(0);
   };
 }

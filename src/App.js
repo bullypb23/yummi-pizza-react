@@ -36,8 +36,8 @@ class App extends Component {
   quantityHandler = (id, quantity) => {
     let updatedBasket = [...this.state.selectedPizzas];
     let updatedBasketId = updatedBasket[id];
-    updatedBasketId['quantity'] = +quantity;
-    updatedBasketId['totalPrice'] = +updatedBasketId['price'] * +updatedBasketId['quantity'];
+    updatedBasketId.quantity = +quantity;
+    updatedBasketId.totalPrice = +updatedBasketId.price * +updatedBasketId.quantity;
     updatedBasket[id] = updatedBasketId;
     this.setState({ 
       selectedPizzas: updatedBasket,
@@ -90,8 +90,12 @@ class App extends Component {
                                                   totalPrice={this.state.totalBasketPrice} 
                                                   quantityHandler={this.quantityHandler} 
                                                   removePizza={this.removePizzaHandler}
-                                                  deliveryPrice={this.state.deliveryPrice} />} />
-            <Route path="/order" render={() => <Order />} />
+                                                  deliveryPrice={this.state.deliveryPrice}
+                                                  {...this.props} />} />
+            <Route path="/order" render={() => <Order 
+                                                  deliveryPrice={this.state.deliveryPrice}
+                                                  pizzas={this.state.selectedPizzas} 
+                                                  totalPrice={this.state.totalBasketPrice} />} />
             <Redirect to="/" />
           </Suspense>
         </Switch>
