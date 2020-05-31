@@ -7,3 +7,7 @@ ul {
   justify-content: flex-end;
   align-items: center;
 }
+
+.Navigation span {
+  font-size: 0.8rem;
+}

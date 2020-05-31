@@ -11,7 +11,7 @@ class App extends Component {
   state = {
     selectedPizzas: [],
     totalBasketPrice: 0,
-    deliveryPrice: 0
+    deliveryPrice: 2
   }
 
   addedPizzaHandler = (name, price) => {
@@ -81,7 +81,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header pizzasNumber={this.state.selectedPizzas.length} />
         <Switch>
           <Suspense fallback={<h1>Loading...</h1>}>
             <Route exact path="/" render={() => <HomePage addedPizzaHandler={this.addedPizzaHandler} />} />
@@ -95,7 +95,8 @@ class App extends Component {
             <Route path="/order" render={() => <Order 
                                                   deliveryPrice={this.state.deliveryPrice}
                                                   pizzas={this.state.selectedPizzas} 
-                                                  totalPrice={this.state.totalBasketPrice} />} />
+                                                  totalPrice={this.state.totalBasketPrice}
+                                                  {...this.props} />} />
             <Redirect to="/" />
           </Suspense>
         </Switch>

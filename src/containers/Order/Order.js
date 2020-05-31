@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import classes from './Order.module.css';
 import Input from '../../components/Input/Input';
 import { Redirect } from 'react-router-dom';
+import { API_STORE_ORDER } from '../../shared/utility';
+import axios from 'axios';
 
 // import axios from 'axios';
 
@@ -22,7 +24,7 @@ class Order extends Component {
         valid: false,
         touched: false
       },
-      street: {
+      address: {
         elementType: 'input',
         elementConfig: {
           type: 'text',
@@ -31,7 +33,7 @@ class Order extends Component {
         value: '',
         validation: {
           required: true,
-          isStreet: true
+          isAddress: true
         },
         valid: false,
         touched: false
@@ -90,6 +92,21 @@ class Order extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
+    axios.post(API_STORE_ORDER, {
+      name: this.state.controls.name.value,
+      address: this.state.controls.address.value,
+      phone: this.state.controls.phone.value,
+      email: this.state.controls.email.value,
+      totalPrice: this.props.totalPrice,
+      deliveryPrice: this.props.deliveryPrice,
+      orderItems: this.props.pizzas
+    }).then(response => {
+      this.props.history.push('/');
+      window.location.reload();
+    }).catch(err => {
+      this.setState({ error: err })
+      console.log(err);
+    })
   }
 
   checkValidity = (value, rules) => {
@@ -114,9 +131,9 @@ class Order extends Component {
       const regex = /^[0-9]+$/;
       isValid = regex.test(value) && isValid;
     } else if (rules.isName) {
-      const regex = /^[a-z A-Z]+$/;
+      const regex = /^[a-z ]+$/i;
       isValid = regex.test(String(value)) && isValid;
-    } else if (rules.isStreet) {
+    } else if (rules.isAddress) {
       const regex = /^[a-z 0-9]+$/i;
       isValid = regex.test(String(value)) && isValid;
     }
@@ -154,13 +171,13 @@ class Order extends Component {
       <div className={classes.Order}>
         <div className={classes.Details}>
           <h2>Delivery details</h2>
-          {error}
           <form onSubmit={this.submitHandler}>
             {form}
             <button className={classes.Submit} disabled={!this.state.formIsValid}>Order</button>
           </form>
-          {this.props.pizzas.length === 0 ? <Redirect to="/" /> : null}
           <p>Total price with delivery is {+this.props.totalPrice.toFixed(2) + +this.props.deliveryPrice.toFixed(2)}€.</p>
+          {this.props.pizzas.length === 0 ? <Redirect to="/" /> : null}
+          {error}
         </div>
       </div>
     )

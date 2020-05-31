@@ -3,16 +3,16 @@ import classes from './Pizzas.module.css';
 import axios from 'axios';
 import Pizza from '../../components/Pizza/Pizza';
 import Spinner from '../../components/Spinner/Spinner';
+import { API_PIZZAS } from '../../shared/utility';
 
 class Pizzas extends Component {
   state = {
     pizzas: [],
-    url: 'http://localhost/phpsandbox/yummi-pizza/public/api/pizzas',
-    isLoaded: false,
+    isLoaded: false
   }
 
   componentDidMount() {
-    axios.get(this.state.url)
+    axios.get(API_PIZZAS)
       .then(response => {
         this.setState({pizzas: response.data, isLoaded: true})
       })

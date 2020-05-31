@@ -22,6 +22,10 @@
   color: var(--primary-color);
 }
 
+.Details p {
+  padding: 10px 0;
+}
+
 .Details form {
   width: 100%;
   display: flex;

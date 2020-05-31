@@ -21,7 +21,7 @@ const Pizza = props => {
   }, [info])
 
   const priceHandler = (e) => {
-    setPrice(e.target.value)
+    setPrice(e.target.value);
   }
 
   let src;
@@ -74,7 +74,6 @@ const Pizza = props => {
         {info === true ? (<div>
           <i className="far fa-check-circle"></i>
         </div>) : null}
-        {/* <p>{info === true ? addedSuccessfully() : null}</p> */}
       </div>
     </div>
   )
