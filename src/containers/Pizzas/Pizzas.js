@@ -3,6 +3,7 @@ import classes from './Pizzas.module.css';
 import axios from 'axios';
 import Pizza from '../../components/Pizza/Pizza';
 import Spinner from '../../components/Spinner/Spinner';
+import Step from '../../components/Step/Step';
 import { API_PIZZAS } from '../../shared/utility';
 
 class Pizzas extends Component {
@@ -39,6 +40,12 @@ class Pizzas extends Component {
     } 
     return (
       <div className={classes.PizzasContainer}>
+        <div className={classes.Steps}>
+          <Step active><i className="fas fa-utensils"></i></Step>
+          <Step><i className="fas fa-shopping-cart"></i></Step>
+          <Step><i className="fas fa-user"></i></Step>
+          <Step><i className="fas fa-truck"></i></Step>
+        </div>
         {items}
       </div>
     )

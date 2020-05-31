@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import classes from './Basket.module.css';
 import BasketItem from '../../components/BasketItem/BasketItem';
 import { Link } from 'react-router-dom';
+import Step from '../../components/Step/Step';
 
 class Basket extends Component {
   goToOrders = () => {
-    this.props.history.push('/order');
+    this.props.history.push('/orders');
   }
   render() {
     const pizzasArray = Object.keys(this.props.pizzas);
@@ -37,6 +38,12 @@ class Basket extends Component {
 
     return (
       <div className={classes.Basket}>
+        <div className={classes.Steps}>
+          <Step active><i className="fas fa-utensils"></i></Step>
+          <Step active><i className="fas fa-shopping-cart"></i></Step>
+          <Step><i className="fas fa-user"></i></Step>
+          <Step><i className="fas fa-truck"></i></Step>
+        </div>
         <div className={classes.Container}>
           <div className={classes.Heading}>
             <h2>Your shopping cart <i className="fas fa-shopping-cart"></i></h2>

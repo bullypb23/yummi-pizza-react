@@ -1,0 +1,43 @@
+.CompletedOrder {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 20px 10px;
+}
+
+.Steps {
+  flex: 1 1 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Success {
+  width: 60%;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.Success h2 {
+  flex: 1 1 100%;
+  font-size: 3rem;
+  color: var(--primary-color);
+  padding: 10px 0;
+}
+
+.Success p {
+  flex: 1 1 100%;
+  color: #222;
+  font-size: 1rem;
+}
+
+.Success span {
+  color: var(--primary-color);
+  cursor: pointer;
+}

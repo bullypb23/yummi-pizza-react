@@ -6,6 +6,7 @@ import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import Basket from './containers/Basket/Basket';
 import Order from './containers/Order/Order';
+import CompletedOrder from './components/CompletedOrder/CompletedOrder';
 
 class App extends Component {
   state = {
@@ -92,11 +93,12 @@ class App extends Component {
                                                   removePizza={this.removePizzaHandler}
                                                   deliveryPrice={this.state.deliveryPrice}
                                                   {...this.props} />} />
-            <Route path="/order" render={() => <Order 
+            <Route path="/orders" render={() => <Order 
                                                   deliveryPrice={this.state.deliveryPrice}
                                                   pizzas={this.state.selectedPizzas} 
                                                   totalPrice={this.state.totalBasketPrice}
                                                   {...this.props} />} />
+            <Route path="/completed" component={CompletedOrder} />
             <Redirect to="/" />
           </Suspense>
         </Switch>

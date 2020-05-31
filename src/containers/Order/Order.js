@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './Order.module.css';
 import Input from '../../components/Input/Input';
+import Step from '../../components/Step/Step';
 import { Redirect } from 'react-router-dom';
 import { API_STORE_ORDER } from '../../shared/utility';
 import axios from 'axios';
@@ -101,8 +102,7 @@ class Order extends Component {
       deliveryPrice: this.props.deliveryPrice,
       orderItems: this.props.pizzas
     }).then(response => {
-      this.props.history.push('/');
-      window.location.reload();
+      this.props.history.push('/completed');
     }).catch(err => {
       this.setState({ error: err })
       console.log(err);
@@ -164,11 +164,17 @@ class Order extends Component {
 
     let error = null;
     if (this.state.error) {
-      error = <p style={{color: 'var(--primary-color)'}}>{this.state.error.message}</p>
+      error = <p style={{color: 'var(--primary-color)'}}>Something went wrong. Please try again!</p>
     }
 
     return (
-      <div className={classes.Order}>
+      <div className={classes.Order}> 
+        <div className={classes.Steps}>
+          <Step active><i className="fas fa-utensils"></i></Step>
+          <Step active><i className="fas fa-shopping-cart"></i></Step>
+          <Step active><i className="fas fa-user"></i></Step>
+          <Step><i className="fas fa-truck"></i></Step>
+        </div>
         <div className={classes.Details}>
           <h2>Delivery details</h2>
           <form onSubmit={this.submitHandler}>

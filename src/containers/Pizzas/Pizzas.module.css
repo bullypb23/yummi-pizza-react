@@ -7,3 +7,11 @@
   flex-wrap: wrap;
   background-color: #222;
 }
+
+.Steps {
+  flex: 1 1 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
