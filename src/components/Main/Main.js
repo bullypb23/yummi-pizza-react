@@ -10,7 +10,7 @@ const Main = props => {
         <p className={classes.MainInfo}>Choose from our menu bellow and order most yummiest pizza in the city!</p>
       </div>
       <div className={classes.Delivery}>
-        <div>
+        <div className={classes.Logo}>
           <img src={logo} alt="Yummi Pizza logo" />
         </div>
         <div>

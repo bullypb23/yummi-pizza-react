@@ -3,8 +3,23 @@ import classes from './Basket.module.css';
 import BasketItem from '../../components/BasketItem/BasketItem';
 import { Link } from 'react-router-dom';
 import Step from '../../components/Step/Step';
+import axios from 'axios';
 
 class Basket extends Component {
+  state = {
+    converter: null,
+    message: null
+  }
+
+  componentDidMount() {
+    axios.get('https://api.exchangeratesapi.io/latest')
+      .then(response => {
+        this.setState({ converter: response.data.rates.USD })
+        console.log(response.data.rates.USD)
+      }).catch(err => {
+        this.setState({ message: 'We have problem with converting to USD'})
+      })
+  }
   goToOrders = () => {
     this.props.history.push('/orders');
   }
@@ -35,6 +50,7 @@ class Basket extends Component {
     }
 
     let totalPrice = Number(this.props.totalPrice);
+    let dollarsPrice = totalPrice.toFixed(2) * this.state.converter;
 
     return (
       <div className={classes.Basket}>
@@ -54,6 +70,7 @@ class Basket extends Component {
               <div className={classes.Price}>
                 <p>Delivery price is {this.props.deliveryPrice}€.</p>
                 <h4>Total price is <span>{+totalPrice.toFixed(2)}</span>€</h4>
+                <p>Price in USD is {+dollarsPrice.toFixed(2)}$</p>
               </div>
               <div className={classes.Order}>
                 <button onClick={this.goToOrders} disabled={pizzasArray.length === 0 ? true : false}>Order</button>

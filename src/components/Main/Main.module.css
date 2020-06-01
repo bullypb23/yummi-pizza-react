@@ -1,4 +1,5 @@
 .Main {
+  max-width: 100vw;
   width: 100%;
   min-height: 60vh;
   background-image: url('../../assets/background.jpg');
@@ -15,6 +16,7 @@
 .MainHeading {
   font-size: 5rem;
   color: var(--primary-color);
+  /* color: green; */
   padding: 10px 0;
 }
 
@@ -32,7 +34,6 @@
   align-items: center;
   animation: delivery 3s forwards ease-in-out;
   animation-iteration-count: 1;
-  animation-delay: 0;
 }
 
 @keyframes delivery {
@@ -57,4 +58,63 @@
   padding-left: 10px;
   font-size: 1rem;
   color: var(--primary-color);
+}
+
+@media screen and (max-width: 599px) {
+  .Main {
+    background-position-y: 0px;
+  }
+
+  .Logo img {
+    height: 70px;
+  }
+
+  .MainHeading {
+    text-align: center;
+    font-size: 3rem;
+  }
+  
+  .MainInfo {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+
+  .Delivery {
+    padding: 10px;
+  }
+
+  .Delivery h3 {
+    font-size: 1.1rem;
+  }
+  
+  .Delivery p {
+    font-size: 0.9rem;
+    padding-left: 0px;
+    /* padding: 5px 10px; */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Main {
+    background-position-y: 0px;
+  }
+
+  .MainHeading {
+    text-align: center;
+  }
+  
+  .MainInfo {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .Main {
+    background-position-y: 0px;
+  }
+
+  .MainHeading {
+    text-align: center;
+  }
 }

@@ -24,3 +24,15 @@
   border: 1px solid var(--primary-color);
   background-color: #fda49a;
 }
+
+@media screen and (max-width: 599px) {
+  .Input {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Input {
+    width: 80%;
+  }
+}

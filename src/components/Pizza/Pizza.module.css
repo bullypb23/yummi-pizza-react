@@ -1,5 +1,6 @@
 .PizzaItem {
-  flex: 25%;
+  flex-basis: 25%;
+  /* max-width: 25%; */
   text-align: center;
   padding: 30px 20px;
 }
@@ -19,7 +20,7 @@
 
 .Description {
   width: 80%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
   height: auto;
   position: absolute;
   bottom: 0;
@@ -69,7 +70,7 @@
 }
 
 .Button button {
-  width: 70%;
+  width: 80%;
   background: var(--primary-color);
   color: #fff;
   border: none;
@@ -99,4 +100,22 @@
   width: 30px;
   height: 30px;
   font-size: 30px;
+}
+
+@media screen and (max-width: 599px) {
+  .Description {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768) {
+  .Description {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .Description {
+    width: 100%;
+  }
 }

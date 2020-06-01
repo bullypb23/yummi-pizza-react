@@ -1,11 +1,23 @@
-.PizzasContainer {
+.Pizzas {
   width: 100%;
   padding: 30px;
+  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
   background-color: #222;
+}
+
+.PizzasContainer {
+  width: 100%;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /* background-color: #222; */
 }
 
 .Steps {

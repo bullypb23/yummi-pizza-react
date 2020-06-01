@@ -5,8 +5,7 @@ import Step from '../../components/Step/Step';
 import { Redirect } from 'react-router-dom';
 import { API_STORE_ORDER } from '../../shared/utility';
 import axios from 'axios';
-
-// import axios from 'axios';
+import Spinner from '../../components/Spinner/Spinner';
 
 class Order extends Component {
   state = {
@@ -70,7 +69,8 @@ class Order extends Component {
       }
     },
     error: null,
-    formIsValid: false
+    formIsValid: false,
+    ordering: false
   }
 
   onChangeHandler = (event, controlName) => {
@@ -93,6 +93,7 @@ class Order extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
+    this.setState({ ordering: true })
     axios.post(API_STORE_ORDER, {
       name: this.state.controls.name.value,
       address: this.state.controls.address.value,
@@ -103,9 +104,9 @@ class Order extends Component {
       orderItems: this.props.pizzas
     }).then(response => {
       this.props.history.push('/completed');
+      this.setState({ ordering: false })
     }).catch(err => {
-      this.setState({ error: err })
-      console.log(err);
+      this.setState({ error: err, ordering: false })
     })
   }
 
@@ -185,6 +186,7 @@ class Order extends Component {
           {this.props.pizzas.length === 0 ? <Redirect to="/" /> : null}
           {error}
         </div>
+        {this.state.ordering ? <Spinner /> : null}
       </div>
     )
   }

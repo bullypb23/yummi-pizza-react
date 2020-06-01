@@ -39,14 +39,16 @@ class Pizzas extends Component {
       }) 
     } 
     return (
-      <div className={classes.PizzasContainer}>
+      <div className={classes.Pizzas}>
         <div className={classes.Steps}>
           <Step active><i className="fas fa-utensils"></i></Step>
           <Step><i className="fas fa-shopping-cart"></i></Step>
           <Step><i className="fas fa-user"></i></Step>
           <Step><i className="fas fa-truck"></i></Step>
         </div>
-        {items}
+        <div className={classes.PizzasContainer}>
+          {items}
+        </div>
       </div>
     )
   }

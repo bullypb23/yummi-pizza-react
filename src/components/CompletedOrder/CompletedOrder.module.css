@@ -1,18 +1,19 @@
 .CompletedOrder {
   flex: 1 1 100%;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
   padding: 20px 10px;
 }
 
 .Steps {
-  flex: 1 1 100%;
+  width: 100%;
   padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .Success {
@@ -40,4 +41,20 @@
 .Success span {
   color: var(--primary-color);
   cursor: pointer;
+}
+
+@media screen and (max-width: 599px) {
+  .Success {
+    width: 100%;
+  }
+
+  .Success h2 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Success {
+    width: 80%;
+  }
 }

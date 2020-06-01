@@ -16,3 +16,9 @@
   background-color: var(--primary-color);
   transform: scale(1.2);
 }
+
+@media screen and (max-width: 599px) {
+  .Step {
+    margin: 0 15px;
+  }
+}

@@ -21,3 +21,21 @@
   color: var(--secondary-color);
   text-decoration: underline;
 }
+
+@media screen and (max-width: 599px) {
+  .NavigationItem {
+    flex-basis: 30%;
+  }
+  .Link {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .NavigationItem {
+    flex-basis: 15%;
+  }
+  .Link {
+    font-size: 1rem;
+  }
+}

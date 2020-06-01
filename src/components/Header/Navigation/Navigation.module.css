@@ -11,3 +11,9 @@ ul {
 .Navigation span {
   font-size: 0.8rem;
 }
+
+@media screen and (max-width: 599px) {
+  .Navigation span {
+    font-size: 0.7rem;
+  }
+}
