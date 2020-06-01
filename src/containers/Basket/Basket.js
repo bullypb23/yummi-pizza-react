@@ -15,7 +15,6 @@ class Basket extends Component {
     axios.get('https://api.exchangeratesapi.io/latest')
       .then(response => {
         this.setState({ converter: response.data.rates.USD })
-        console.log(response.data.rates.USD)
       }).catch(err => {
         this.setState({ message: 'We have problem with converting to USD'})
       })

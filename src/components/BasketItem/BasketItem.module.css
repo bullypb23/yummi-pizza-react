@@ -80,7 +80,7 @@
 @media screen and (max-width: 599px) {
   .ImageBox {
     flex-basis: 25%;
-    height: 100px;
+    height: 90px;
     display: flex;
     align-items: center;
   }
