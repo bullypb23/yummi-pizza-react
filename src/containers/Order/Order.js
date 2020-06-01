@@ -103,6 +103,7 @@ class Order extends Component {
       deliveryPrice: this.props.deliveryPrice,
       orderItems: this.props.pizzas
     }).then(response => {
+      this.props.resetBasket();
       this.props.history.push('/completed');
       this.setState({ ordering: false })
     }).catch(err => {
@@ -129,7 +130,7 @@ class Order extends Component {
       const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       isValid = regex.test(String(value)) && isValid;
     } else if (rules.isNumber) {
-      const regex = /^[0-9]+$/;
+      const regex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{3,8}$/;
       isValid = regex.test(value) && isValid;
     } else if (rules.isName) {
       const regex = /^[a-z ]+$/i;

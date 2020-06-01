@@ -79,6 +79,17 @@ class App extends Component {
     });
   }
 
+  resetBasket = () => {
+    const updatedPizzas = [];
+    const newDeliveryPrice = 0;
+    const newBasketPrice = 2;
+    this.setState({ 
+      selectedPizzas: updatedPizzas,
+      deliveryPrice: newDeliveryPrice,
+      totalBasketPrice: newBasketPrice
+     })
+  }
+
   render() {
     return (
       <div className="App">
@@ -97,6 +108,7 @@ class App extends Component {
                                                   deliveryPrice={this.state.deliveryPrice}
                                                   pizzas={this.state.selectedPizzas} 
                                                   totalPrice={this.state.totalBasketPrice}
+                                                  resetBasket={this.resetBasket}
                                                   {...this.props} />} />
             <Route path="/completed" component={CompletedOrder} />
             <Redirect to="/" />
