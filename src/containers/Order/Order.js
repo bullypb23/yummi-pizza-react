@@ -3,7 +3,7 @@ import classes from './Order.module.css';
 import Input from '../../components/Input/Input';
 import Step from '../../components/Step/Step';
 import { Redirect } from 'react-router-dom';
-import { API_STORE_ORDER } from '../../shared/utility';
+import { API_STORE_ORDER } from '../../shared/apiUrls';
 import axios from 'axios';
 import Spinner from '../../components/Spinner/Spinner';
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 import Pizza from '../../components/Pizza/Pizza';
 import Spinner from '../../components/Spinner/Spinner';
 import Step from '../../components/Step/Step';
-import { API_PIZZAS } from '../../shared/utility';
+import { API_PIZZAS } from '../../shared/apiUrls';
 
 class Pizzas extends Component {
   state = {
